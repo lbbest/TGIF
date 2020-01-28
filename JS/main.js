@@ -25,7 +25,7 @@ for (i = 0; i < members.length; i++) {
   let seniority = members[i].seniority;
   newCell = newRow.insertCell();
   newCell.textContent = seniority;
-  let votesWith = members[i].votes_with_party_pct + "%";
+  let votesWith = members[i].votes_with_party_pct.toFixed(2) + "%";
   newCell = newRow.insertCell();
   newCell.textContent = votesWith;
 }
