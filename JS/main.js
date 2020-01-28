@@ -1,7 +1,11 @@
-let senateTable = document.querySelector("#senate-data");
+let senateTable = document
+  .querySelector("#senate-data")
+  .getElementsByTagName("tbody")[0];
 let members = data.results[0].members;
 
 for (i = 0; i < members.length; i++) {
+  let newRow = senateTable.insertRow();
+  let newCell = newRow.insertCell();
   let firstName = members[i].first_name;
   let middleName = members[i].middle_name;
   let lastName = members[i].last_name;
@@ -11,13 +15,17 @@ for (i = 0; i < members.length; i++) {
   } else {
     fullName = firstName + " " + lastName;
   }
-  console.log(fullName);
+  newCell.textContent = fullName;
   let party = members[i].party;
-  console.log(party);
+  newCell = newRow.insertCell();
+  newCell.textContent = party;
   let state = members[i].state;
-  console.log(state);
+  newCell = newRow.insertCell();
+  newCell.textContent = state;
   let seniority = members[i].seniority;
-  console.log(seniority);
+  newCell = newRow.insertCell();
+  newCell.textContent = seniority;
   let votesWith = members[i].votes_with_party_pct + "%";
-  console.log(votesWith);
+  newCell = newRow.insertCell();
+  newCell.textContent = votesWith;
 }
