@@ -1,10 +1,10 @@
-let senateTable = document
-  .querySelector("#senate-data")
+let houseTable = document
+  .querySelector("#house-data")
   .getElementsByTagName("tbody")[0];
-let members = data.results[0].members;
+let members = houseData.results[0].members;
 
 for (i = 0; i < members.length; i++) {
-  let newRow = senateTable.insertRow();
+  let newRow = houseTable.insertRow();
   let newCell = newRow.insertCell();
   let firstName = members[i].first_name;
   let middleName = members[i].middle_name;
