@@ -40,8 +40,9 @@
               role="button"
               aria-haspopup="true"
               aria-expanded="false"
-              >Congress 113</a
             >
+              Congress 113
+            </a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="senate-data.html">Senate</a>
               <a class="dropdown-item" href="house-data.html">House</a>
@@ -49,7 +50,16 @@
           </li>
         </ul>
       </div>
-    </nav c>
+    </nav>
+
+    <div aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Congress 113</li>
+        <li class="breadcrumb-item active" aria-current="page">Senate</li>
+      </ol>
+    </div>
+
     <div class="content-container">
       <div class="content-section">
         <h2>Senators</h2>
@@ -68,7 +78,10 @@
       </div>
       <!--Table container-->
       <div class="table-container">
-        <table class="table table-borderless table-striped table-sm text-center" id="senate-data">
+        <table
+          class="table table-borderless table-striped table-sm text-center"
+          id="senate-data"
+        >
           <thead class="thead-dark">
             <tr>
               <th>Name</th>
@@ -81,9 +94,10 @@
           <tbody></tbody>
         </table>
       </div>
-      </div>
-      <footer class="bg-dark">
-      </footer>
+    </div>
+    <footer class="bg-dark d-flex justify-content-center">
+      <p class="my-auto">&copy; 2020 TGIF | All Rights Reserved</p>
+    </footer>
     <script src="JS/pro-Congress-113-senate.js"></script>
     <script src="./JS/main.js"></script>
     <script
