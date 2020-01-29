@@ -11,45 +11,47 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./CSS/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Changa&display=swap"
+      rel="stylesheet"
+    />
     <title>Senate - TGIF</title>
   </head>
   <body>
     <nav class="sticky-top bg-white">
-      <div>
-        <header class="navbar navbar-light">
-          <a class="navbar-brand" href="index.html">
-            <img
-              src="content/placeholder_logo.png"
-              width="30"
-              height="30"
-              class="d-inline-block align-top"
-              alt=""
-            />
-            Transparent Government in Fact
+      <header class="navbar navbar-light">
+        <a class="navbar-brand d-flex" href="index.html">
+          <img
+            src="content/tgif_logo.png"
+            width="80"
+            height="80"
+            class="d-inline-block align-top"
+            alt=""
+          />
+          <h1 class="my-auto text-wrap">Transparent Government In Fact</h1>
+        </a>
+      </header>
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link active dropdown-toggle"
+            data-toggle="dropdown"
+            href="#"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Congress 113
           </a>
-        </header>
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link active dropdown-toggle"
-              data-toggle="dropdown"
-              href="#"
-              role="button"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Congress 113
-            </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="senate-data.html">Senate</a>
-              <a class="dropdown-item" href="house-data.html">House</a>
-            </div>
-          </li>
-        </ul>
-      </div>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="senate-data.html">Senate</a>
+            <a class="dropdown-item" href="house-data.html">House</a>
+          </div>
+        </li>
+      </ul>
     </nav>
 
     <div aria-label="breadcrumb">
