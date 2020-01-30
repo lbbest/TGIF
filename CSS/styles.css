@@ -10,6 +10,22 @@
   background-color: white;
 }
 
+.hero {
+  background-color: transparent !important;
+  background-image: url("../content/us-capitol-building-4077168_1920.png");
+  background-size: auto;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.accordion-btn {
+  width: 100%;
+  text-align: start;
+  line-height: 0%;
+  display: flex;
+  justify-content: space-between;
+}
+
 h1 {
   font-family: "Changa", sans-serif;
 }
@@ -27,4 +43,33 @@ footer > p {
 
 th {
   width: 20%;
+}
+
+i.accordion-btn {
+  float: right;
+}
+
+.social-media {
+  display: flex;
+  justify-content: space-evenly;
+  vertical-align: middle;
+  position: absolute;
+  right: 5%;
+  width: 15%;
+  top: 30%;
+}
+.social-media > a {
+  color: white !important;
+}
+
+.social-media > a:hover {
+  color: #d3d3d3 !important;
+}
+
+[data-toggle="collapse"] .fa:before {
+  content: "\f077";
+}
+
+[data-toggle="collapse"].collapsed .fa:before {
+  content: "\f078";
 }
