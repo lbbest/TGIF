@@ -147,13 +147,6 @@ function descTableTenPctAtt(arr, table) {
   }
 }
 
-descTableTenPctAtt(
-  allSenateMembers,
-  document
-    .querySelector("#senate-least-attendance")
-    .getElementsByTagName("tbody")[0]
-);
-
 // Calculate most engaged (Top 10% Attendance) and build table
 
 function ascTableTenPctAtt(arr, table) {
@@ -179,9 +172,58 @@ function ascTableTenPctAtt(arr, table) {
   }
 }
 
-ascTableTenPctAtt(
-  allSenateMembers,
-  document
-    .querySelector("#senate-most-attendance")
-    .getElementsByTagName("tbody")[0]
-);
+// Calculate least loyal (Bottom 10% Loyalty) and build table
+
+function descTableTenPctLoy(arr, table) {
+  arr.sort(function(obj1, obj2) {
+    return obj1.votes_with_party_pct - obj2.votes_with_party_pct;
+  });
+  for (i = 0; i < arr.length * 0.1; i++) {
+    let newRow = table.insertRow();
+    let newCell = newRow.insertCell();
+    let firstName = arr[i].first_name;
+    let middleName = arr[i].middle_name;
+    let lastName = arr[i].last_name;
+    if (middleName != null) {
+      fullName = firstName + " " + middleName + " " + lastName;
+    } else {
+      fullName = firstName + " " + lastName;
+    }
+    newCell.innerHTML = `<a href="${arr[i].url}" target="_blank">${fullName}</a>`;
+    newLink = newCell = newRow.insertCell();
+    newCell.textContent = (
+      arr[i].total_votes *
+      (arr[i].votes_with_party_pct / 100)
+    ).toFixed(0);
+    newCell = newRow.insertCell();
+    newCell.textContent = arr[i].votes_with_party_pct.toFixed(2);
+  }
+}
+
+// Calculate most loyal (Top 10% Loyalty) and build table
+
+function ascTableTenPctLoy(arr, table) {
+  arr.sort(function(obj1, obj2) {
+    return obj2.votes_with_party_pct - obj1.votes_with_party_pct;
+  });
+  for (i = 0; i < arr.length * 0.1; i++) {
+    let newRow = table.insertRow();
+    let newCell = newRow.insertCell();
+    let firstName = arr[i].first_name;
+    let middleName = arr[i].middle_name;
+    let lastName = arr[i].last_name;
+    if (middleName != null) {
+      fullName = firstName + " " + middleName + " " + lastName;
+    } else {
+      fullName = firstName + " " + lastName;
+    }
+    newCell.innerHTML = `<a href="${arr[i].url}" target="_blank">${fullName}</a>`;
+    newLink = newCell = newRow.insertCell();
+    newCell.textContent = (
+      arr[i].total_votes *
+      (arr[i].votes_with_party_pct / 100)
+    ).toFixed(0);
+    newCell = newRow.insertCell();
+    newCell.textContent = arr[i].votes_with_party_pct.toFixed(2);
+  }
+}
