@@ -63,19 +63,6 @@ statistics.Number_of_Democrats_House = houseDemocrats.length;
 statistics.Number_of_Republicans_House = houseRepublicans.length;
 statistics.Number_of_Independents_House = houseIndependents.length;
 
-// Insert senate member count data into at a glance table
-
-document.querySelector("#senate-republican-member-count").textContent =
-  statistics.Number_of_Republicans_Senate;
-document.querySelector("#senate-democrat-member-count").textContent =
-  statistics.Number_of_Democrats_Senate;
-document.querySelector("#senate-independent-member-count").textContent =
-  statistics.Number_of_Independents_Senate;
-document.querySelector("#senate-member-count").textContent =
-  statistics.Number_of_Independents_Senate +
-  statistics.Number_of_Democrats_Senate +
-  statistics.Number_of_Republicans_Senate;
-
 // Calculate average vote with percentage
 
 function avgVoteWith(dataSource) {
@@ -103,24 +90,6 @@ statistics.Pct_Voted_With_Party_Republicans_House = avgVoteWith(
 );
 statistics.Pct_Voted_With_Party_Independents_House =
   avgVoteWith(houseIndependents) || 0;
-
-// Insert senate % voted with data into at a glance table
-
-document.querySelector(
-  "#senate-republican-voted-with"
-).textContent = statistics.Pct_Voted_With_Party_Republicans_Senate.toFixed(2);
-document.querySelector(
-  "#senate-democrat-voted-with"
-).textContent = statistics.Pct_Voted_With_Party_Democrats_Senate.toFixed(2);
-document.querySelector(
-  "#senate-independent-voted-with"
-).textContent = statistics.Pct_Voted_With_Party_Independents_Senate.toFixed(2);
-document.querySelector("#senate-voted-with").textContent = (
-  (statistics.Pct_Voted_With_Party_Independents_Senate +
-    statistics.Pct_Voted_With_Party_Democrats_Senate +
-    statistics.Pct_Voted_With_Party_Republicans_Senate) /
-  3
-).toFixed(2);
 
 // Calculate least engaged (Bottom 10% Attendance) and build table
 

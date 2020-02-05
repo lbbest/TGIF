@@ -15,6 +15,7 @@
       href="https://fonts.googleapis.com/css?family=Changa&display=swap"
       rel="stylesheet"
     />
+    <link rel="shortcut icon" href="content/favicon.ico" type="image/x-icon" />
     <title>Senate Attendance - TGIF</title>
   </head>
   <script src="https://use.fontawesome.com/865ebd3641.js"></script>
@@ -65,7 +66,7 @@
           </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="senate_attendance.html">Senate</a>
-            <a class="dropdown-item" href="#">House</a>
+            <a class="dropdown-item" href="house_attendance.html">House</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -81,7 +82,7 @@
           </a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="senate_party-loyalty.html">Senate</a>
-            <a class="dropdown-item" href="#">House</a>
+            <a class="dropdown-item" href="house_party-loyalty.html">House</a>
           </div>
         </li>
       </ul>
@@ -93,10 +94,9 @@
         <li class="breadcrumb-item active" aria-current="page">Senate</li>
       </ol>
     </div>
-
     <div class="content-container">
       <div class="row">
-        <div class="col-6">
+        <div class="col-12 col-lg-6">
           <h2>Attendance</h2>
           <p>
             The Constitution specifies that a majority of members constitutes a
@@ -116,7 +116,7 @@
             President may (if present) cast the tiebreaking vote.
           </p>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-lg-6">
           <h2>Senate At A Glance</h2>
           <table
             class="table table-borderless table-striped table-sm text-center"
@@ -154,9 +154,10 @@
           </table>
         </div>
       </div>
-      <hr>
-      <div class="content-section">
-        <h2>Least Engaged (Bottom 10% Attendance)</h2>
+      <hr />
+      <div class="row">
+        <div class="col-12 col-xl-6">
+          <h2>Least Engaged (Bottom 10% Attendance)</h2>
           <table
             class="table table-borderless table-striped table-sm text-center"
             id="senate-least-attendance"
@@ -170,9 +171,9 @@
             </thead>
             <tbody></tbody>
           </table>
-      </div>
-      <div class="content-section">
-        <h2>Most Engaged (Top 10% Attendance)</h2>
+        </div>
+        <div class="cold-12 col-xl-6">
+          <h2>Most Engaged (Top 10% Attendance)</h2>
           <table
             class="table table-borderless table-striped table-sm text-center"
             id="senate-most-attendance"

@@ -15,46 +15,77 @@
       href="https://fonts.googleapis.com/css?family=Changa&display=swap"
       rel="stylesheet"
     />
+    <link rel="shortcut icon" href="content/favicon.ico" type="image/x-icon" />
     <title>House - TGIF</title>
   </head>
   <script src="https://use.fontawesome.com/865ebd3641.js"></script>
   <body>
     <nav class="sticky-top bg-white">
-      <div>
-        <header class="navbar navbar-light">
-          <a class="navbar-brand d-flex" href="index.html">
-            <img
-              src="content/tgif_logo.png"
-              width="80"
-              height="80"
-              class="d-inline-block align-top"
-              alt=""
-            />
-            <h1 class="my-auto text-wrap">Transparent Government In Fact</h1>
+      <header class="navbar navbar-light">
+        <a class="navbar-brand d-flex" href="index.html">
+          <img
+            src="content/tgif_logo.png"
+            width="80"
+            height="80"
+            class="d-inline-block align-top"
+            alt=""
+          />
+          <h1 class="my-auto text-wrap">Transparent Government In Fact</h1>
+        </a>
+      </header>
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link active dropdown-toggle"
+            data-toggle="dropdown"
+            href="#"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Congress 113
           </a>
-        </header>
-        <ul class="nav nav-tabs">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link active dropdown-toggle"
-              data-toggle="dropdown"
-              href="#"
-              role="button"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Congress 113
-            </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="senate-data.html">Senate</a>
-              <a class="dropdown-item" href="house-data.html">House</a>
-            </div>
-          </li>
-        </ul>
-      </div>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="senate-data.html">Senate</a>
+            <a class="dropdown-item" href="house-data.html">House</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link active dropdown-toggle"
+            data-toggle="dropdown"
+            href="#"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Attendance
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="senate_attendance.html">Senate</a>
+            <a class="dropdown-item" href="house_attendance.html">House</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link active dropdown-toggle"
+            data-toggle="dropdown"
+            href="#"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Party Loyalty
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="senate_party-loyalty.html">Senate</a>
+            <a class="dropdown-item" href="house_party-loyalty.html">House</a>
+          </div>
+        </li>
+      </ul>
     </nav>
 
     <div aria-label="breadcrumb">
@@ -66,26 +97,35 @@
     </div>
 
     <div class="content-container">
-      <div class="row col-6">
-        <h2>Congressmen</h2>
-        <p>
-          The major power of the House is to pass federal legislation that
-          affects the entire country, although its bills must also be passed by
-          the Senate and further agreed to by the U.S. President before becoming
-          law (unless both the House and Senate re-pass the legislation with a
-          two-thirds majority in each chamber). The House has some exclusive
-          powers: the power to initiate revenue bills, to impeach officials
-          (impeached officials are subsequently tried in the Senate), and to
-          elect the U.S. President in case there is no majority in the Electoral
-          College.
-        </p>
-        <p>
-          Each U.S. state is represented in the House in proportion to its
-          population as measured in the census, but every state is entitled to
-          at least one representative.
-        </p>
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <h2>Congressmen</h2>
+          <p>
+            The major power of the House is to pass federal legislation that
+            affects the entire country, although its bills must also be passed
+            by the Senate and further agreed to by the U.S. President before
+            becoming law (unless both the House and Senate re-pass the
+            legislation with a two-thirds majority in each chamber). The House
+            has some exclusive powers: the power to initiate revenue bills, to
+            impeach officials (impeached officials are subsequently tried in the
+            Senate), and to elect the U.S. President in case there is no
+            majority in the Electoral College.
+          </p>
+          <p>
+            Each U.S. state is represented in the House in proportion to its
+            population as measured in the census, but every state is entitled to
+            at least one representative.
+          </p>
+        </div>
+        <div class="col-12 col-lg-6 my-auto">
+          <img
+            src="content/houseofreps.jpg"
+            alt="House of Representatives"
+            width="100%"
+            class="rounded-lg"
+          />
+        </div>
       </div>
-      <!--Table container-->
       <div class="table-container">
         <table
           class="table table-borderless table-striped table-sm text-center"
