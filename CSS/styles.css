@@ -26,6 +26,11 @@
   justify-content: space-between;
 }
 
+.party-filter > p,
+.state-filter > p {
+  margin-bottom: 0%;
+}
+
 h1 {
   font-family: "Changa", sans-serif;
 }

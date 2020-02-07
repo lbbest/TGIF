@@ -123,93 +123,92 @@
         </div>
       </div>
 
-      <div class="senate-filter row">
-        <form class="party-filter col-8 d-flex justify-content-start">
-          <p>Filter by Party:</p>
-          <input
-            type="checkbox"
-            name="senate-filter"
-            id="senate-republican"
-            value="senate-republican"
-            checked
-          />
-          <label for="senate-republican">Republican</label>
-          <input
-            type="checkbox"
-            name="senate-filter"
-            id="senate-democrat"
-            value="senate-democrat"
-            checked
-          />
-          <label for="senate-democrat">Democrat</label>
-          <input
-            type="checkbox"
-            name="senate-filter"
-            id="senate-independent"
-            value="senate-independent"
-            checked
-          />
-          <label for="senate-independent">Independent</label>
-        </form>
-        <form class="state-filter col-4 d-flex justify-content-end">
-          <p>Filter by State:</p>
-          <select id="senate-state">
-            <option value="all">All</option>
-            <option value="al">AL</option>
-            <option value="ak">AK</option>
-            <option value="ar">AR</option>
-            <option value="az">AZ</option>
-            <option value="ca">CA</option>
-            <option value="co">CO</option>
-            <option value="ct">CT</option>
-            <option value="de">DE</option>
-            <option value="fl">FL</option>
-            <option value="ga">GA</option>
-            <option value="hi">HI</option>
-            <option value="ia">IA</option>
-            <option value="id">ID</option>
-            <option value="il">IL</option>
-            <option value="in">IN</option>
-            <option value="ks">KS</option>
-            <option value="ky">KY</option>
-            <option value="la">LA</option>
-            <option value="ma">MA</option>
-            <option value="md">MD</option>
-            <option value="me">ME</option>
-            <option value="mi">MI</option>
-            <option value="mn">MN</option>
-            <option value="mo">MO</option>
-            <option value="ms">MS</option>
-            <option value="mt">MT</option>
-            <option value="nc">NC</option>
-            <option value="nd">ND</option>
-            <option value="ne">NE</option>
-            <option value="nh">NH</option>
-            <option value="nj">NJ</option>
-            <option value="nm">NM</option>
-            <option value="nv">NV</option>
-            <option value="ny">NY</option>
-            <option value="oh">OH</option>
-            <option value="ok">OK</option>
-            <option value="or">OR</option>
-            <option value="pa">PA</option>
-            <option value="ri">RI</option>
-            <option value="sc">SC</option>
-            <option value="sd">SD</option>
-            <option value="tn">TN</option>
-            <option value="tx">TX</option>
-            <option value="ut">UT</option>
-            <option value="va">VA</option>
-            <option value="vt">VT</option>
-            <option value="wa">WA</option>
-            <option value="wi">WI</option>
-            <option value="wv">WV</option>
-            <option value="wy">WY</option>
-          </select>
-        </form>
-      </div>
-
       <div class="table-container">
+        <div class="senate-filter row">
+          <form class="party-filter col-8 my-auto text-left">
+            <p>Filter by Party:</p>
+            <input
+              type="checkbox"
+              name="senate-filter"
+              id="senate-republican"
+              value="senate-republican"
+              checked
+            />
+            <label for="senate-republican">Republican</label>
+            <input
+              type="checkbox"
+              name="senate-filter"
+              id="senate-democrat"
+              value="senate-democrat"
+              checked
+            />
+            <label for="senate-democrat">Democrat</label>
+            <input
+              type="checkbox"
+              name="senate-filter"
+              id="senate-independent"
+              value="senate-independent"
+              checked
+            />
+            <label for="senate-independent">Independent</label>
+          </form>
+          <form class="state-filter col-4 my-auto text-right">
+            <p>Filter by State:</p>
+            <select id="senate-state">
+              <option value="all">All</option>
+              <option value="al">AL</option>
+              <option value="ak">AK</option>
+              <option value="ar">AR</option>
+              <option value="az">AZ</option>
+              <option value="ca">CA</option>
+              <option value="co">CO</option>
+              <option value="ct">CT</option>
+              <option value="de">DE</option>
+              <option value="fl">FL</option>
+              <option value="ga">GA</option>
+              <option value="hi">HI</option>
+              <option value="ia">IA</option>
+              <option value="id">ID</option>
+              <option value="il">IL</option>
+              <option value="in">IN</option>
+              <option value="ks">KS</option>
+              <option value="ky">KY</option>
+              <option value="la">LA</option>
+              <option value="ma">MA</option>
+              <option value="md">MD</option>
+              <option value="me">ME</option>
+              <option value="mi">MI</option>
+              <option value="mn">MN</option>
+              <option value="mo">MO</option>
+              <option value="ms">MS</option>
+              <option value="mt">MT</option>
+              <option value="nc">NC</option>
+              <option value="nd">ND</option>
+              <option value="ne">NE</option>
+              <option value="nh">NH</option>
+              <option value="nj">NJ</option>
+              <option value="nm">NM</option>
+              <option value="nv">NV</option>
+              <option value="ny">NY</option>
+              <option value="oh">OH</option>
+              <option value="ok">OK</option>
+              <option value="or">OR</option>
+              <option value="pa">PA</option>
+              <option value="ri">RI</option>
+              <option value="sc">SC</option>
+              <option value="sd">SD</option>
+              <option value="tn">TN</option>
+              <option value="tx">TX</option>
+              <option value="ut">UT</option>
+              <option value="va">VA</option>
+              <option value="vt">VT</option>
+              <option value="wa">WA</option>
+              <option value="wi">WI</option>
+              <option value="wv">WV</option>
+              <option value="wy">WY</option>
+            </select>
+          </form>
+        </div>
         <table
           class="table table-borderless table-striped table-sm text-center"
           id="senate-data"

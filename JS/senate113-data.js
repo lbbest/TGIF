@@ -5,28 +5,39 @@ let senateTable = document
 
 generateTable(senateMembers, senateTable);
 
-// Function to select table rows containing 'x'
+// Function to select table rows containing '<td>x</td>'
 
-function contains(selector, text) {
+function contains(selector, tag) {
   var elements = document.querySelectorAll(selector);
   return Array.prototype.filter.call(elements, function(element) {
-    return RegExp(text).test(element.textContent);
+    return RegExp(tag).test(element.innerHTML);
   });
 }
 
 // Assign table rows to party
 
-let republicans = contains("tr", "R");
+const republicans = contains("tr", "<td>R</td>");
+const democrats = contains("tr", "<td>D</td>");
+const independents = contains("tr", "<td>I</td>");
 
-// Show/hide table row when checkbox is checked/unchecked
+// Show/hide table row when checkbox is checked/unchecked for party
 
 const showRepublican = document.querySelector("#senate-republican");
-showRepublican.addEventListener("change", function(e) {
-  for (i = 0; i < republicans.length; i++) {
-    if (showRepublican.checked) {
-      republicans[i].style.display = "table-row";
-    } else {
-      republicans[i].style.display = "none";
+const showDemocrat = document.querySelector("#senate-democrat");
+const showIndependent = document.querySelector("#senate-independent");
+
+function checkboxFilter(checkbox, party) {
+  checkbox.addEventListener("change", function(e) {
+    for (i = 0; i < party.length; i++) {
+      if (checkbox.checked) {
+        party[i].style.display = "table-row";
+      } else {
+        party[i].style.display = "none";
+      }
     }
-  }
-});
+  });
+}
+
+checkboxFilter(showRepublican, republicans);
+checkboxFilter(showDemocrat, democrats);
+checkboxFilter(showIndependent, independents);
