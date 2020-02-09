@@ -41,3 +41,27 @@ function checkboxFilter(checkbox, party) {
 checkboxFilter(showRepublican, republicans);
 checkboxFilter(showDemocrat, democrats);
 checkboxFilter(showIndependent, independents);
+
+// Dropdown Filter
+
+function dropdownFilter(dropdown, table) {
+  let rows = table.getElementsByTagName("tr");
+
+  dropdown.addEventListener("change", function(e) {
+    let filter = dropdown.value;
+    for (i = 0; i < rows.length; i++) {
+      let cells = rows[i].cells;
+      let state = cells[2] || null;
+      if (filter == "All" || filter == state.textContent) {
+        state.parentElement.style.display = "";
+      } else {
+        state.parentElement.style.display = "none";
+      }
+    }
+  });
+}
+
+dropdownFilter(
+  document.querySelector("#house-state"),
+  document.querySelector("#house-data").getElementsByTagName("tbody")[0]
+);
