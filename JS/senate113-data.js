@@ -1,3 +1,20 @@
+fetch("https://api.propublica.org/congress/v1/113/senate/members.json", {
+  headers: new Headers({
+    "X-API-Key": "gIe854v6TfYXsKrWmyYXR8INQ1PtTRXwMx0c4Ccy"
+  })
+})
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    console.log(data);
+  })
+  .catch(function(error) {
+    log("Request failed", error);
+  });
+
+///////////////////////
+
 let senateMembers = senateData.results[0].members;
 let senateTable = document
   .querySelector("#senate-data")

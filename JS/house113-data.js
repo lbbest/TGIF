@@ -8,7 +8,7 @@ generateTable(houseMembers, houseTable);
 // Function to select table rows containing '<td>x</td>'
 
 function contains(selector, tag) {
-  var elements = document.querySelectorAll(selector);
+  let elements = document.querySelectorAll(selector);
   return Array.prototype.filter.call(elements, function(element) {
     return RegExp(tag).test(element.innerHTML);
   });
