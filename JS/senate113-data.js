@@ -1,3 +1,11 @@
+// Assign HTML table element to senateTable variable
+
+let senateTable = document
+  .querySelector("#senate-data")
+  .getElementsByTagName("tbody")[0];
+
+// Fetch ProPublica data via Ajax call
+
 fetch("https://api.propublica.org/congress/v1/113/senate/members.json", {
   headers: new Headers({
     "X-API-Key": "gIe854v6TfYXsKrWmyYXR8INQ1PtTRXwMx0c4Ccy"
@@ -7,63 +15,47 @@ fetch("https://api.propublica.org/congress/v1/113/senate/members.json", {
     return response.json();
   })
   .then(function(data) {
-    console.log(data);
+    generateTable(data.results[0].members, senateTable);
   })
   .catch(function(error) {
-    log("Request failed", error);
+    console.log("Request failed", error);
   });
 
-///////////////////////
+// Checkbox Filter
 
-let senateMembers = senateData.results[0].members;
-let senateTable = document
-  .querySelector("#senate-data")
-  .getElementsByTagName("tbody")[0];
-
-generateTable(senateMembers, senateTable);
-
-// Function to select table rows containing '<td>x</td>'
-
-function contains(selector, tag) {
-  var elements = document.querySelectorAll(selector);
-  return Array.prototype.filter.call(elements, function(element) {
-    return RegExp(tag).test(element.innerHTML);
-  });
-}
-
-// Assign table rows to party
-
-const republicans = contains("tr", "<td>R</td>");
-const democrats = contains("tr", "<td>D</td>");
-const independents = contains("tr", "<td>I</td>");
-
-// Show/hide table row when checkbox is checked/unchecked for party
-
-const showRepublican = document.querySelector("#senate-republican");
-const showDemocrat = document.querySelector("#senate-democrat");
-const showIndependent = document.querySelector("#senate-independent");
-
-function checkboxFilter(checkbox, party) {
+function checkboxFilter(checkbox, table) {
+  let rows = table.getElementsByTagName("tr");
   checkbox.addEventListener("change", function(e) {
-    for (i = 0; i < party.length; i++) {
-      if (checkbox.checked) {
-        party[i].style.display = "table-row";
-      } else {
-        party[i].style.display = "none";
+    let filter = checkbox.value;
+    for (i = 0; i < rows.length; i++) {
+      let cells = rows[i].cells;
+      let party = cells[1] || null;
+      if (checkbox.checked && filter == party.textContent) {
+        party.parentElement.style.display = "table-row";
+      } else if (checkbox.checked == false && filter == party.textContent) {
+        party.parentElement.style.display = "none";
       }
     }
   });
 }
 
-checkboxFilter(showRepublican, republicans);
-checkboxFilter(showDemocrat, democrats);
-checkboxFilter(showIndependent, independents);
+checkboxFilter(
+  document.querySelector("#senate-republican"),
+  document.querySelector("#senate-data").getElementsByTagName("tbody")[0]
+);
+checkboxFilter(
+  document.querySelector("#senate-democrat"),
+  document.querySelector("#senate-data").getElementsByTagName("tbody")[0]
+);
+checkboxFilter(
+  document.querySelector("#senate-independent"),
+  document.querySelector("#senate-data").getElementsByTagName("tbody")[0]
+);
 
 // Dropdown Filter
 
 function dropdownFilter(dropdown, table) {
   let rows = table.getElementsByTagName("tr");
-
   dropdown.addEventListener("change", function(e) {
     let filter = dropdown.value;
     for (i = 0; i < rows.length; i++) {
