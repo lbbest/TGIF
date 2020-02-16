@@ -1,65 +1,42 @@
-let houseMembers = houseData.results[0].members;
+// Assign HTML table element to senateTable variable
+
 let houseTable = document
   .querySelector("#house-data")
   .getElementsByTagName("tbody")[0];
 
-generateTable(houseMembers, houseTable);
+// Fetch ProPublica data via Ajax call
 
-// Function to select table rows containing '<td>x</td>'
-
-function contains(selector, tag) {
-  let elements = document.querySelectorAll(selector);
-  return Array.prototype.filter.call(elements, function(element) {
-    return RegExp(tag).test(element.innerHTML);
+fetch("https://api.propublica.org/congress/v1/113/house/members.json", {
+  headers: new Headers({
+    "X-API-Key": "gIe854v6TfYXsKrWmyYXR8INQ1PtTRXwMx0c4Ccy"
+  })
+})
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    generateTable(data.results[0].members, houseTable);
+  })
+  .catch(function(error) {
+    console.log("Request failed", error);
   });
-}
 
-// Assign table rows to party
+// Checkbox Filter
 
-const republicans = contains("tr", "<td>R</td>");
-const democrats = contains("tr", "<td>D</td>");
-const independents = contains("tr", "<td>I</td>");
-
-// Show/hide table row when checkbox is checked/unchecked for party
-
-const showRepublican = document.querySelector("#house-republican");
-const showDemocrat = document.querySelector("#house-democrat");
-const showIndependent = document.querySelector("#house-independent");
-
-function checkboxFilter(checkbox, party) {
-  checkbox.addEventListener("change", function(e) {
-    for (i = 0; i < party.length; i++) {
-      if (checkbox.checked) {
-        party[i].style.display = "table-row";
-      } else {
-        party[i].style.display = "none";
-      }
-    }
-  });
-}
-
-checkboxFilter(showRepublican, republicans);
-checkboxFilter(showDemocrat, democrats);
-checkboxFilter(showIndependent, independents);
+checkboxFilter(
+  document.querySelector("#house-republican"),
+  document.querySelector("#house-data").getElementsByTagName("tbody")[0]
+);
+checkboxFilter(
+  document.querySelector("#house-democrat"),
+  document.querySelector("#house-data").getElementsByTagName("tbody")[0]
+);
+checkboxFilter(
+  document.querySelector("#house-independent"),
+  document.querySelector("#house-data").getElementsByTagName("tbody")[0]
+);
 
 // Dropdown Filter
-
-function dropdownFilter(dropdown, table) {
-  let rows = table.getElementsByTagName("tr");
-
-  dropdown.addEventListener("change", function(e) {
-    let filter = dropdown.value;
-    for (i = 0; i < rows.length; i++) {
-      let cells = rows[i].cells;
-      let state = cells[2] || null;
-      if (filter == "All" || filter == state.textContent) {
-        state.parentElement.style.display = "";
-      } else {
-        state.parentElement.style.display = "none";
-      }
-    }
-  });
-}
 
 dropdownFilter(
   document.querySelector("#house-state"),

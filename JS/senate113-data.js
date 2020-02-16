@@ -23,22 +23,6 @@ fetch("https://api.propublica.org/congress/v1/113/senate/members.json", {
 
 // Checkbox Filter
 
-function checkboxFilter(checkbox, table) {
-  let rows = table.getElementsByTagName("tr");
-  checkbox.addEventListener("change", function(e) {
-    let filter = checkbox.value;
-    for (i = 0; i < rows.length; i++) {
-      let cells = rows[i].cells;
-      let party = cells[1] || null;
-      if (checkbox.checked && filter == party.textContent) {
-        party.parentElement.style.display = "table-row";
-      } else if (checkbox.checked == false && filter == party.textContent) {
-        party.parentElement.style.display = "none";
-      }
-    }
-  });
-}
-
 checkboxFilter(
   document.querySelector("#senate-republican"),
   document.querySelector("#senate-data").getElementsByTagName("tbody")[0]
@@ -53,22 +37,6 @@ checkboxFilter(
 );
 
 // Dropdown Filter
-
-function dropdownFilter(dropdown, table) {
-  let rows = table.getElementsByTagName("tr");
-  dropdown.addEventListener("change", function(e) {
-    let filter = dropdown.value;
-    for (i = 0; i < rows.length; i++) {
-      let cells = rows[i].cells;
-      let state = cells[2] || null;
-      if (filter == "All" || filter == state.textContent) {
-        state.parentElement.style.display = "";
-      } else {
-        state.parentElement.style.display = "none";
-      }
-    }
-  });
-}
 
 dropdownFilter(
   document.querySelector("#senate-state"),
