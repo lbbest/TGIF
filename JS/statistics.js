@@ -7,6 +7,8 @@ let houseDemocrats = [];
 let houseRepublicans = [];
 let houseIndependents = [];
 
+// HOUSE ATTENDANCE
+
 fetch("https://api.propublica.org/congress/v1/113/house/members.json", {
   headers: new Headers({
     "X-API-Key": "gIe854v6TfYXsKrWmyYXR8INQ1PtTRXwMx0c4Ccy"
@@ -73,6 +75,8 @@ fetch("https://api.propublica.org/congress/v1/113/house/members.json", {
     console.log("Request failed", error);
   });
 
+// SENATE ATTENDANCE
+
 fetch("https://api.propublica.org/congress/v1/113/senate/members.json", {
   headers: new Headers({
     "X-API-Key": "gIe854v6TfYXsKrWmyYXR8INQ1PtTRXwMx0c4Ccy"
@@ -121,6 +125,8 @@ fetch("https://api.propublica.org/congress/v1/113/senate/members.json", {
       [],
       [senateDemocrats, senateRepublicans, senateIndependents]
     );
+
+    // Build 10% tables
     descTableTenPctAtt(
       allSenateMembers,
       document
@@ -128,11 +134,79 @@ fetch("https://api.propublica.org/congress/v1/113/senate/members.json", {
         .getElementsByTagName("tbody")[0]
     );
 
-    // Build 10% tables
     ascTableTenPctAtt(
       allSenateMembers,
       document
         .querySelector("#senate-most-attendance")
+        .getElementsByTagName("tbody")[0]
+    );
+  })
+  .catch(function(error) {
+    console.log("Request failed", error);
+  });
+
+// HOUSE LOYALTY
+
+fetch("https://api.propublica.org/congress/v1/113/senate/members.json", {
+  headers: new Headers({
+    "X-API-Key": "gIe854v6TfYXsKrWmyYXR8INQ1PtTRXwMx0c4Ccy"
+  })
+})
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    // Initialise allHouseMembers
+    let allHouseMembers = Array.prototype.concat.apply(
+      [],
+      [houseDemocrats, houseRepublicans, houseIndependents]
+    );
+
+    // Build 10% tables
+    descTableTenPctLoy(
+      allHouseMembers,
+      document
+        .querySelector("#house-least-loyal")
+        .getElementsByTagName("tbody")[0]
+    );
+
+    ascTableTenPctLoy(
+      allHouseMembers,
+      document
+        .querySelector("#house-most-loyal")
+        .getElementsByTagName("tbody")[0]
+    );
+  })
+  .catch(function(error) {
+    console.log("Request failed", error);
+  });
+
+// SENATE LOYALTY
+
+fetch("https://api.propublica.org/congress/v1/113/senate/members.json", {
+  headers: new Headers({
+    "X-API-Key": "gIe854v6TfYXsKrWmyYXR8INQ1PtTRXwMx0c4Ccy"
+  })
+})
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    let allSenateMembers = Array.prototype.concat.apply(
+      [],
+      [senateDemocrats, senateRepublicans, senateIndependents]
+    );
+    descTableTenPctLoy(
+      allSenateMembers,
+      document
+        .querySelector("#senate-least-loyal")
+        .getElementsByTagName("tbody")[0]
+    );
+
+    ascTableTenPctLoy(
+      allSenateMembers,
+      document
+        .querySelector("#senate-most-loyal")
         .getElementsByTagName("tbody")[0]
     );
   })
